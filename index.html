@@ -1,0 +1,2875 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset='utf-8' />
+  <title>rmqp 0.1.0 | Documentation</title>
+  <meta name='viewport' content='width=device-width,initial-scale=1'>
+  <link href='assets/bass.css' type='text/css' rel='stylesheet' />
+  <link href='assets/style.css' type='text/css' rel='stylesheet' />
+  <link href='assets/github.css' type='text/css' rel='stylesheet' />
+</head>
+<body class='documentation'>
+  <div class='max-width-4 mx-auto'>
+    <div class='clearfix md-mxn2'>
+      <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
+        <div class='py1 px2'>
+          <h3 class='mb0 no-anchor'>rmqp</h3>
+          <div class='mb1'><code>0.1.0</code></div>
+          <input
+            placeholder='Filter'
+            id='filter-input'
+            class='col12 block input'
+            type='text' />
+          <div id='toc'>
+            <ul class='list-reset h5 py1-ul'>
+              
+                
+                <li><a
+                  href='#amqpclient'
+                  class=" toggle-sibling">
+                  AmqpClient
+                  <span class='icon'>▸</span>
+                </a>
+                
+                <div class='toggle-target display-none'>
+                  
+                  <ul class='list-reset py1-ul pl1'>
+                    <li class='h5'><span>Static members</span></li>
+                    
+                      <li><a
+                        href='#AmqpClient.transformer'
+                        class='regular pre-open'>
+                        .transformer
+                      </a></li>
+                    
+                    </ul>
+                  
+                  
+                    <ul class='list-reset py1-ul pl1'>
+                      <li class='h5'><span>Instance members</span></li>
+                      
+                      <li><a
+                        href='#AmqpClient#publisher'
+                        class='regular pre-open'>
+                        #publisher
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#subscriber'
+                        class='regular pre-open'>
+                        #subscriber
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#close'
+                        class='regular pre-open'>
+                        #close
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#assertQueue'
+                        class='regular pre-open'>
+                        #assertQueue
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#checkQueue'
+                        class='regular pre-open'>
+                        #checkQueue
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#deleteQueue'
+                        class='regular pre-open'>
+                        #deleteQueue
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#purgeQueue'
+                        class='regular pre-open'>
+                        #purgeQueue
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#bindQueue'
+                        class='regular pre-open'>
+                        #bindQueue
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#unbindQueue'
+                        class='regular pre-open'>
+                        #unbindQueue
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#assertExchange'
+                        class='regular pre-open'>
+                        #assertExchange
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#checkExchange'
+                        class='regular pre-open'>
+                        #checkExchange
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#deleteExchange'
+                        class='regular pre-open'>
+                        #deleteExchange
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#bindExchange'
+                        class='regular pre-open'>
+                        #bindExchange
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#unbindExchange'
+                        class='regular pre-open'>
+                        #unbindExchange
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#get'
+                        class='regular pre-open'>
+                        #get
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#ackAll'
+                        class='regular pre-open'>
+                        #ackAll
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#nackAll'
+                        class='regular pre-open'>
+                        #nackAll
+                      </a></li>
+                      
+                      <li><a
+                        href='#AmqpClient#recover'
+                        class='regular pre-open'>
+                        #recover
+                      </a></li>
+                      
+                    </ul>
+                  
+                  
+                  
+                </div>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#amqpmessagefields'
+                  class="">
+                  AmqpMessageFields
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#amqpmessageproperties'
+                  class="">
+                  AmqpMessageProperties
+                  
+                </a>
+                
+                </li>
+              
+                
+                <li><a
+                  href='#amqpmessage'
+                  class="">
+                  AmqpMessage
+                  
+                </a>
+                
+                </li>
+              
+            </ul>
+          </div>
+          <div class='mt1 h6 quiet'>
+            <a href='http://documentation.js.org/reading-documentation.html'>Need help reading this?</a>
+          </div>
+        </div>
+      </div>
+      <div class='fix-margin-3'>
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='amqpclient'>
+      AmqpClient
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L51-L808'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  
+
+  <div class='pre p1 fill-light mt0'>new AmqpClient(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</div>
+  
+  
+    <p>
+      Extends
+      
+        EventEmitter
+      
+    </p>
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>url</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</code>
+	    URL of the form 
+<code>amqp[s]://[user:password@]hostname[:port][/vhost]</code>
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?
+            = <code>{}</code>)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.url</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+                  </td>
+                  <td class='break-word'><span>URL of the form 
+<code>amqp[s]://[user:password@]hostname[:port][/vhost]</code>
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.retryTimes</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a></code>
+                  
+                    (default <code>5</code>)
+                  </td>
+                  <td class='break-word'><span>The number of attempts to make before giving up.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.poolMaxChannels</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>
+                  
+                    (default <code>16</code>)
+                  </td>
+                  <td class='break-word'><span>Maximum number of pooled channel
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.poolMaxConfirmChannels</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></code>
+                  
+                    (default <code>16</code>)
+                  </td>
+                  <td class='break-word'><span>Maximum number of pooled confirm channel
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.configuration</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Static Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='AmqpClient.transformer'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>transformer(transformer)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L300-L302'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  
+
+  <div class='pre p1 fill-light mt0'>transformer(transformer: function (message: <a href="#amqpmessage">AmqpMessage</a>, cb)): <a href="https://nodejs.org/api/stream.html#stream_class_stream_transform">stream.Transform</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>transformer</span> <code class='quiet'>(function (message: <a href="#amqpmessage">AmqpMessage</a>, cb))</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://nodejs.org/api/stream.html#stream_class_stream_transform">stream.Transform</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-keyword">const</span> sub = amqp.subscriber(<span class="hljs-string">'rpc_queue'</span>);
+<span class="hljs-keyword">const</span> pub = amqp.publisher({ <span class="hljs-attr">contentType</span>: <span class="hljs-string">'text/plain'</span> });
+<span class="hljs-keyword">const</span> transformer = AmqpClient.transformer(<span class="hljs-function">(<span class="hljs-params">message, callback</span>) =&gt;</span> {
+    <span class="hljs-keyword">const</span> n = <span class="hljs-built_in">Number</span>(message.content);
+    callback(<span class="hljs-literal">null</span>, fibonacci(n).toString());
+});
+sub.pipe(transformer).pipe(pub);</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Instance Members</div>
+    <div class="clearfix">
+  
+    <div class='border-bottom' id='AmqpClient#publisher'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>publisher(exchange?, routingKey?, options?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L210-L227'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>publisher(queue, options)
+publisher(exchange, routingKey, options)</p>
+
+
+  <div class='pre p1 fill-light mt0'>publisher(exchange: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, routingKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?): <a href="https://nodejs.org/api/stream.html#stream_class_stream_writable">stream.Writable</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>exchange</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>routingKey</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
+	    Options fields are divided into those that have some meaning to RabbitMQ and those that
+will be ignored by RabbitMQ but passed on to consumers. Options may be omitted altogether,
+in which case defaults as noted will apply.
+
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.confirmation</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span>If true, the confirm channel will be acquired from the pool
+<p>Used by RabbitMQ and sent on to consumers:</p>
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.expiration</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
+                  </td>
+                  <td class='break-word'><span>If supplied, the message will be discarded from a queue once it's been there longer
+than the given number of milliseconds.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.expirationMs</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
+                  </td>
+                  <td class='break-word'><span>Alias for expiration
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.userId</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+                  </td>
+                  <td class='break-word'><span>If supplied, RabbitMQ will compare it to the username supplied when opening the connection,
+and reject messages for which it does not match.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.CC</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)?</code>
+                  </td>
+                  <td class='break-word'><span>Messages will be routed to these routing keys in addition to that given as the routingKey parameter.
+A string will be implicitly treated as an array containing just that string.
+This will override any value given for CC in the headers parameter.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.BCC</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array">Array</a>&#x3C;<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>>)?</code>
+                  </td>
+                  <td class='break-word'><span>Like CC, except that the value will not be sent in the message headers to consumers.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.priority</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
+                  </td>
+                  <td class='break-word'><span>A priority for the message; ignored by versions of RabbitMQ older than 3.5.0,
+or if the queue is not a priority queue.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.persistent</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span>If truthy, the message will survive broker restarts provided it's in a queue that also survives restarts.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.mandatory</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span>If true, the message will be returned if it is not routed to a queue
+(i.e., if there are no bindings that match its routing key).
+<p>Not used by RabbitMQ and not sent to consumers:</p>
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.immediate</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?</code>
+                  </td>
+                  <td class='break-word'><span>In the specification, this instructs the server to return the message if it is not able to be sent
+immediately to a consumer. No longer implemented in RabbitMQ, and if true, will provoke a channel error,
+so it's best to leave it out.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.contentType</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+                  </td>
+                  <td class='break-word'><span>A MIME type for the message content.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.contentEncoding</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+                  </td>
+                  <td class='break-word'><span>A MIME encoding for the message content.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.headers</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?</code>
+                  </td>
+                  <td class='break-word'><span>Application specific headers to be carried along with the message content.
+The value as sent may be augmented by extension-specific fields if they are given in the parameters,
+for example, 'CC', since these are encoded as message headers; the supplied value won't be mutated.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.correlationId</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+                  </td>
+                  <td class='break-word'><span>Usually used to match replies to requests, or similar.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.replyTo</span> <code class='quiet'>(AmqpStreamSubscriber | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)?</code>
+                  </td>
+                  <td class='break-word'><span>Often used to name a queue to which the receiving application must send replies,
+in an RPC scenario (many libraries assume this pattern).
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.messageId</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+                  </td>
+                  <td class='break-word'><span>Arbitrary application-specific identifier for the message.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.timestamp</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
+                  </td>
+                  <td class='break-word'><span>A timestamp for the message.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.type</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+                  </td>
+                  <td class='break-word'><span>An arbitrary application-specific type for the message.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.appId</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+                  </td>
+                  <td class='break-word'><span>An arbitrary identifier for the originating application.
+</span></td>
+                </tr>
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://nodejs.org/api/stream.html#stream_class_stream_writable">stream.Writable</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Example</div>
+    
+      
+      <pre class='p1 overflow-auto round fill-light'><span class="hljs-comment">// without options and callback</span>
+     publish(<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'message'</span>)
+     <span class="hljs-comment">// without options</span>
+     publish(<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'message'</span>, (err) =&gt; {})
+     <span class="hljs-comment">// without callback</span>
+     publish(<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'message'</span>, {<span class="hljs-attr">expirationMs</span>: <span class="hljs-number">15</span>})
+     <span class="hljs-comment">// with options and callback</span>
+     publish(<span class="hljs-string">'foo'</span>, <span class="hljs-string">'bar'</span>, <span class="hljs-string">'message'</span>, {<span class="hljs-attr">expirationMs</span>: <span class="hljs-number">15</span>}, (err) =&gt; {})</pre>
+    
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#subscriber'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>subscriber(exchange?, routingKey, options?)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L268-L285'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>subscriber(queue, options)
+Readable, stream subscribe on messages from queue
+subscriber(exchange, routingKey, options)
+Readable, create exclusive queue and bind it to the exchange
+If incoming message has replyTo property</p>
+<p>NB RabbitMQ v3.3.0 changes the meaning of prefetch (basic.qos) to apply per-consumer, rather than per-channel.
+It will apply to consumers started after the method is called.
+See <a href="http://www.rabbitmq.com/consumer-prefetch.html">rabbitmq-prefetch</a>.</p>
+<p>Use the <code>global</code> flag to get the per-channel behaviour. To keep life interesting, using the <code>global</code> flag
+with an RabbitMQ older than v3.3.0 will bring down the whole connection.</p>
+
+
+  <div class='pre p1 fill-light mt0'>subscriber(exchange: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, routingKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?): <a href="https://nodejs.org/api/stream.html#stream_class_stream_readable">stream.Readable</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>exchange</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>routingKey</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.consumerTag</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.noLocal</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.noAck</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.exclusive</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.priority</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.arguments</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">object</a>?</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.prefetch</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+                  </td>
+                  <td class='break-word'><span>Set the prefetch 
+<code>count</code>
+ for this channel. The 
+<code>count</code>
+ given is the maximum number of messages
+sent over the channel that can be awaiting acknowledgement; once there are 
+<code>count</code>
+ messages outstanding,
+the server will not send more messages on this channel until one or more have been acknowledged.
+A falsey value for 
+<code>count</code>
+ indicates no such limit.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.global</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span>Use the 
+<code>global</code>
+ flag to get the per-channel prefetch behaviour. To keep life interesting,
+using the 
+<code>global</code>
+ flag with an RabbitMQ older than v3.3.0 will bring down the whole connection.
+</span></td>
+                </tr>
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="https://nodejs.org/api/stream.html#stream_class_stream_readable">stream.Readable</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#close'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>close(cb)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L371-L390'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Close AMQP connection</p>
+
+
+  <div class='pre p1 fill-light mt0'>close(cb: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>
+            = <code>noopThrowIfError</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#assertQueue'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>assertQueue(queue, options?, cb = noopThrowIfError)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L426-L437'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Assert a queue into existence. This operation is idempotent given identical arguments;
+however, it will bork the channel if the queue already exists but has different properties
+(values supplied in the arguments field may or may not count for borking purposes).</p>
+
+
+  <div class='pre p1 fill-light mt0'>assertQueue(queue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?, cb: function (err, {queue, messageCount, consumerCount})?)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>queue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Queue name, if you supply an empty string or other falsey value (including null and undefined),
+the server will create a random name for you.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.exclusive</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span>If true, scopes the queue to the connection
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.durable</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+                  
+                    (default <code>true</code>)
+                  </td>
+                  <td class='break-word'><span>If true, the queue will survive broker restarts, modulo the effects of exclusive and autoDelete
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.autoDelete</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span>If true, the queue will be deleted when the number of consumers drops to zero.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.arguments</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?</code>
+                  </td>
+                  <td class='break-word'><span>Additional arguments, usually parameters for some kind of broker-specific extension e.g.,
+high availability, TTL.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.messageTtl</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
+                  </td>
+                  <td class='break-word'><span>Expires messages arriving in the queue after n milliseconds
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.expires</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
+                  </td>
+                  <td class='break-word'><span>The queue will be destroyed after n milliseconds of disuse
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.deadLetterExchange</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+                  </td>
+                  <td class='break-word'><span>An exchange to which messages discarded from the queue will be resent.
+A message is discarded when it expires or is rejected or nacked, or the queue limit is reached.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.maxLength</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
+                  </td>
+                  <td class='break-word'><span>Sets a maximum number of messages the queue will hold.
+Old messages will be discarded (dead-lettered if that's set) to make way for new messages.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.maxPriority</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>?</code>
+                  </td>
+                  <td class='break-word'><span>Makes the queue a priority queue.
+</span></td>
+                </tr>
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(function (err, {queue, messageCount, consumerCount})?
+            = <code>noopThrowIfError</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#checkQueue'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>checkQueue(queue, cb)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L449-L456'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Check whether a queue exists. This will bork the channel if the named queue doesn't exist;
+if it does exist, you go through to the next round!</p>
+
+
+  <div class='pre p1 fill-light mt0'>checkQueue(queue: any, cb: any): <a href="#amqpclient">AmqpClient</a></div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>queue</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code><a href="#amqpclient">AmqpClient</a></code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#deleteQueue'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>deleteQueue(queue, options?, cb = noopThrowIfError)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L480-L491'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Delete the queue named. Naming a queue that doesn't exist will result in the server closing the channel,
+to teach you a lesson (except in RabbitMQ version 3.2.0 and after1).</p>
+<p>Note the obverse semantics of the options: if both are true, the queue will be deleted only
+if it has no consumers and no messages.
+You should leave out the options altogether if you want to delete the queue unconditionally.</p>
+<p>The server reply contains a single field, messageCount, with the number of messages deleted
+or dead-lettered along with the queue.</p>
+
+
+  <div class='pre p1 fill-light mt0'>deleteQueue(queue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?, cb: function (err, {messageCount})?): this</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>queue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.ifUnused</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span>If true and the queue has consumers, it will not be deleted and the channel will be closed.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.ifEmpty</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span>If true and the queue contains messages, the queue will not be deleted and the channel will be closed.
+</span></td>
+                </tr>
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(function (err, {messageCount})?
+            = <code>noopThrowIfError</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>this</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#purgeQueue'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>purgeQueue(queue, cb = noopThrowIfError)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L506-L513'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Remove all undelivered messages from the queue named. Note that this won't remove messages
+that have been delivered but not yet acknowledged; they will remain, and may be requeued
+under some circumstances (e.g., if the channel to which they were delivered closes without acknowledging them).</p>
+<p>The server reply contains a single field, messageCount, containing the number of messages purged from the queue.</p>
+
+
+  <div class='pre p1 fill-light mt0'>purgeQueue(queue: any, cb: function (err, {messageCount})?): this</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>queue</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(function (err, {messageCount})?
+            = <code>noopThrowIfError</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+    
+      <div class='py1 quiet mt1 prose-big'>Returns</div>
+      <code>this</code>:
+        
+
+      
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#bindQueue'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>bindQueue(queue, source, pattern, argt?, cb = noopThrowIfError)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L543-L553'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Assert a routing path from an exchange to a queue: the exchange named by <code>source</code> will relay
+messages to the <code>queue</code> named, according to the type of the exchange and the <code>pattern</code> given.
+Pattern is a list of words, delimited by dots. The words can be anything, but usually they specify
+some features connected to the message.</p>
+<p>There are two important special cases for binding keys:</p>
+<ul>
+<li><code>* (star)</code> can substitute for exactly one word,</li>
+<li><code># (hash)</code> can substitute for zero or more words.</li>
+</ul>
+<p>A few valid routing key examples: <code>"stock.usd.nyse"</code>, <code>"quick.orange.rabbit"</code>, <code>"*.*.rabbit"</code>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>bindQueue(queue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, source: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, pattern: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, argt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?, cb: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>?)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>queue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The queue name
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The exchange name
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>pattern</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The routing key pattern
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>argt</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
+	    Is an object containing extra arguments that may be required for the particular exchange type.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>?
+            = <code>noopThrowIfError</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#unbindQueue'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>unbindQueue(queue, source, pattern, argt?, cb = noopThrowIfError)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L572-L582'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Remove a routing path between the queue named and the exchange named as source
+with the pattern and arguments given.</p>
+
+
+  <div class='pre p1 fill-light mt0'>unbindQueue(queue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, source: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, pattern: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, argt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?, cb: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>?)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>queue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The queue name
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The exchange name
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>pattern</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The routing key pattern
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>argt</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
+	    Is an object containing extra arguments that may be required for the particular exchange type.
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>?
+            = <code>noopThrowIfError</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#assertExchange'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>assertExchange(exchange, type, options?, cb)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L613-L628'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Assert an exchange into existence. As with queues, if the exchange exists already and has properties
+different to those supplied, the channel will 'splode; fields in the arguments object may or may not be 'splodey,
+depending on the type of exchange. Unlike queues, you must supply a name, and it can't be the empty string.
+You must also supply an exchange type, which determines how messages will be routed through the exchange.</p>
+
+
+  <div class='pre p1 fill-light mt0'>assertExchange(exchange: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, type: (<code>"direct"</code> | <code>"fanout"</code> | <code>"topic"</code> | <code>"headers"</code>), options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?, cb: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>exchange</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    Exchange name
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>type</span> <code class='quiet'>((<code>"direct"</code> | <code>"fanout"</code> | <code>"topic"</code> | <code>"headers"</code>)
+            = <code>&#39;direct&#39;</code>)</code>
+	    Exchange type
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.durable</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+                  
+                    (default <code>true</code>)
+                  </td>
+                  <td class='break-word'><span>If true, the exchange will survive broker restarts.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.internal</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span>If true, messages cannot be published directly to the exchange
+(i.e., it can only be the target of bindings, or possibly create messages ex-nihilo).
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.autoDelete</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a></code>
+                  
+                    (default <code>false</code>)
+                  </td>
+                  <td class='break-word'><span>If true, the exchange will be destroyed once the number of bindings for which it is the source drop to zero.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.alternateExchange</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?</code>
+                  </td>
+                  <td class='break-word'><span>An exchange to send messages to if this exchange can't route them to any queues.
+</span></td>
+                </tr>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.arguments</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?</code>
+                  </td>
+                  <td class='break-word'><span>Any additional arguments that may be needed by an exchange type.
+</span></td>
+                </tr>
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>
+            = <code>noopThrowIfError</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#checkExchange'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>checkExchange(exchange, cb)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L640-L646'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Check that an exchange exists. If it doesn't exist, the channel will be closed with an error.
+If it does exist, happy days.</p>
+
+
+  <div class='pre p1 fill-light mt0'>checkExchange(exchange: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, cb: function (err))</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>exchange</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(function (err)
+            = <code>noopThrowIfError</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#deleteExchange'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>deleteExchange(name, options, cb)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L660-L670'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Delete exchange, if the exchange does not exist, a channel error is raised
+(RabbitMQ version 3.2.0 and after will not raise an error1).</p>
+
+
+  <div class='pre p1 fill-light mt0'>deleteExchange(name: any, options: any, cb: any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>name</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+          <table class='mt1 mb2 fixed-table h5 col-12'>
+            <colgroup>
+              <col width='30%' />
+              <col width='70%' />
+            </colgroup>
+            <thead>
+              <tr class='bold fill-light'>
+                <th>Name</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody class='mt1'>
+              
+                <tr>
+                  <td class='break-word'><span class='code bold'>options.ifUnused</span> <code class='quiet'><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>?</code>
+                  </td>
+                  <td class='break-word'><span></span></td>
+                </tr>
+              
+            </tbody>
+          </table>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#bindExchange'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>bindExchange(destination, source, pattern, args, cb)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L691-L701'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Bind an exchange to another exchange. The exchange named by destination will receive messages
+from the exchange named by source, according to the type of the source and the pattern given.
+For example, a direct exchange will relay messages that have a routing key equal to the pattern.</p>
+<p>NB Exchange to exchange binding is a RabbitMQ extension.</p>
+
+
+  <div class='pre p1 fill-light mt0'>bindExchange(destination: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, source: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, pattern: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, args: any, cb: any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>destination</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The destination exchange
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The source exchange
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>pattern</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The routing key pattern
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#unbindExchange'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>unbindExchange(destination, source, pattern, args, cb)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L722-L732'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Remove a binding from an exchange to another exchange. A binding with the exact source exchange,
+destination exchange, routing key pattern, and extension args will be removed.
+If no such binding exists, it's – you guessed it – a channel error, except in RabbitMQ >= version 3.2.0,
+for which it succeeds trivially
+<a href="http://www.squaremobius.net/amqp.node/doc/channel_api.html#idempotent-deletes">1</a>.</p>
+
+
+  <div class='pre p1 fill-light mt0'>unbindExchange(destination: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, source: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, pattern: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, args: any, cb: any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>destination</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The destination exchange
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>source</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The source exchange
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>pattern</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    The routing key pattern
+
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>args</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#get'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>get(queue, options?, cb)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L746-L756'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Ask a queue for a message, as an RPC. This will be resolved with either false,
+if there is no message to be had (the queue has no messages ready),
+or a message.</p>
+
+
+  <div class='pre p1 fill-light mt0'>get(queue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?, cb: any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>queue</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>options</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</code>
+	    
+          </div>
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(any
+            = <code>noopThrowIfError</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#ackAll'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>ackAll(cb)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L767-L773'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Acknowledge all outstanding messages on the channel.
+This is a "safe" operation, in that it won't result in an error even if there are no such messages.</p>
+
+
+  <div class='pre p1 fill-light mt0'>ackAll(cb: any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#nackAll'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>nackAll(cb)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L784-L790'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Reject all messages outstanding on this channel. If requeue is truthy, or omitted,
+the server will try to re-enqueue the messages.</p>
+
+
+  <div class='pre p1 fill-light mt0'>nackAll(cb: any)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(any)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+    <div class='border-bottom' id='AmqpClient#recover'>
+      <div class="clearfix small pointer toggle-sibling">
+        <div class="py1 contain">
+            <a class='icon pin-right py1 dark-link caret-right'>▸</a>
+            <span class='code strong strong truncate'>recover(cb = noopThrowIfError)</span>
+        </div>
+      </div>
+      <div class="clearfix display-none toggle-target">
+        <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/AmqpClient.js#L801-L807'>
+      <span>lib/AmqpClient.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>Requeue unacknowledged messages on this channel. The server will reply (with an empty object)
+once all messages are requeued.</p>
+
+
+  <div class='pre p1 fill-light mt0'>recover(cb: function (err)?)</div>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Parameters</div>
+    <div class='prose'>
+      
+        <div class='space-bottom0'>
+          <div>
+            <span class='code bold'>cb</span> <code class='quiet'>(function (err)?
+            = <code>noopThrowIfError</code>)</code>
+	    
+          </div>
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+      </div>
+    </div>
+  
+</div>
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='amqpmessagefields'>
+      AmqpMessageFields
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/typedefs.js#L1-L48'>
+      <span>lib/typedefs.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>AMQP message fields</p>
+
+
+  <div class='pre p1 fill-light mt0'>AmqpMessageFields</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>consumerTag</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : Identifies the consumer for which the message is destined
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>deliveryTag</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number">number</a>)</code>
+          : A serial number for the message
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>redelivered</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean">boolean</a>)</code>
+          : If true indicates that this message has been delivered before and been handed back to the server
+(e.g., by a nack or recover operation).
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>exchange</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : Name of exchange the message was published to
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>routingKey</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : The routing key (if any) used when published
+
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='amqpmessageproperties'>
+      AmqpMessageProperties
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/typedefs.js#L1-L48'>
+      <span>lib/typedefs.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>AMQP message properties</p>
+
+
+  <div class='pre p1 fill-light mt0'>AmqpMessageProperties</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>contentType</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : A MIME type for the message content.
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>contentEncoding</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          : A MIME encoding for the message content.
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>headers</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>)</code>
+          : Any user provided headers
+
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>deliveryMode</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>priority</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>correlationId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>replyTo</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>expiration</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>messageId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>timestamp</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>type</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>userId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>appId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>clusterId</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>)</code>
+          
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+          
+            <section class='p2 mb2 clearfix bg-white minishadow'>
+
+  
+  <div class='clearfix'>
+    
+    <h3 class='fl m0' id='amqpmessage'>
+      AmqpMessage
+    </h3>
+    
+    
+      <a class='fr fill-darken0 round round pad1x quiet h5' href='https://github.com/amokrushin/rmqp/blob/affe3ce8d38a45ea8b1793ad0dfd4b491635b283/lib/typedefs.js#L1-L48'>
+      <span>lib/typedefs.js</span>
+      </a>
+    
+  </div>
+  
+
+  <p>AMQP message</p>
+
+
+  <div class='pre p1 fill-light mt0'>AmqpMessage</div>
+  
+    <p>
+      Type:
+      <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>
+    </p>
+  
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+    <div class='py1 quiet mt1 prose-big'>Properties</div>
+    <div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>fields</span> <code class='quiet'>(<a href="#amqpmessagefields">AmqpMessageFields</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>properties</span> <code class='quiet'>(<a href="#amqpmessageproperties">AmqpMessageProperties</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>content</span> <code class='quiet'>(<a href="https://nodejs.org/api/buffer.html">Buffer</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>ack</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>)</code>
+          
+          
+        </div>
+      
+        <div class='space-bottom0'>
+          <span class='code bold'>nack</span> <code class='quiet'>(<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>)</code>
+          
+          
+        </div>
+      
+    </div>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</section>
+
+          
+        
+      </div>
+    </div>
+  </div>
+  <script src='assets/anchor.js'></script>
+  <script src='assets/site.js'></script>
+</body>
+</html>

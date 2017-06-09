@@ -1,23 +1,23 @@
 sudo: required
 services:
-- docker
+  - docker
 language: node_js
 os: linux
 cache: yarn
 node_js:
-- stable
+  - stable
 before_install:
-- sudo apt-get update
-- sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
-- docker pull rabbitmq:alpine
-- docker pull node:8-alpine
-- docker run --rm --name rmqp-rabbit --expose 5672 -d rabbitmq:alpine
+  - sudo apt-get update
+  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+  - docker pull rabbitmq:alpine
+  - docker pull node:8-alpine
+  - docker run --rm --name rmqp-rabbit --expose 5672 -d rabbitmq:alpine
 script:
-- npm run docker-test
+  - npm run docker-test
 after_success:
-- yarn add codecov
-- npm run docker-test -- -- -c lcovonly && ./node_modules/.bin/codecov
-- yarn remove codecov
+  - yarn add codecov
+  - npm run docker-test -- -- -c lcovonly && ./node_modules/.bin/codecov
+  - yarn remove codecov
 deploy:
   provider: npm
   email: anton@mokr.org

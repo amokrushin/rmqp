@@ -1,0 +1,9 @@
+language: node_js
+os: linux
+cache: yarn
+node_js:
+  - stable
+after_success:
+  - yarn add codecov
+  - "npm run docker-test -- -- -c lcovonly && ./node_modules/.bin/codecov"
+  - yarn remove codecov

@@ -1,0 +1,7 @@
+*.log
+npm-debug.log*
+lib-cov
+.nyc_output
+coverage
+node_modules
+docs

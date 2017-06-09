@@ -1,0 +1,61 @@
+{
+  "name": "rmqp",
+  "version": "0.1.0",
+  "description": "",
+  "keywords": [],
+  "license": "MIT",
+  "author": "Anton Mokrushin <anton@mokr.org>",
+  "files": [
+    "lib"
+  ],
+  "main": "lib/AmqpClient.js",
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "scripts": {
+    "docker-rabbit-start": "docker run --rm --name rmqp-rabbit --expose 5672 -d rabbitmq:alpine",
+    "docker-rabbit-stop": "docker stop rmqp-rabbit",
+    "docker-rabbit-restart": "run-s docker-rabbit-stop docker-rabbit-start",
+    "docker-node": "docker run -it --rm --name rmqp-test -v `pwd`:/app -w /app --link rmqp-rabbit",
+    "docker-test": "npm run docker-node -- node:8-alpine npm t",
+    "docker-test-coverage-server": "npm run docker-node -- -p 8080:8080 node:8-alpine npm t -- -c html --web 8080",
+    "docs-build": "rm ./docs -rf && documentation build -f html -g -o docs lib/**",
+    "docs-publish": "npm run docs-build && rm -rf node_modules/gh-pages/.cache && gh-pages -d docs && rm ./docs -rf",
+    "docs-serve": "documentation serve -t node_modules/documentation-theme-iam -f html -g -o docs --port 8080 --watch lib/**",
+    "git-reset": "git reset --hard HEAD && git clean -df && git pull",
+    "lint": "eslint index.js lib/**/*.js",
+    "test": "iamtest -r spec",
+    "preversion": "run-s test lint",
+    "postversion": "npm run docs-publish"
+  },
+  "dependencies": {
+    "amqplib": "^0.5.1",
+    "async": "^2.4.1",
+    "iampool": "^0.1.4",
+    "lodash.isstring": "^4.0.1",
+    "lodash.once": "^4.1.1"
+  },
+  "devDependencies": {
+    "documentation": "^4.0.0-rc.1",
+    "documentation-theme-iam": "^0.1.0",
+    "eslint": "^3.19.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^5.0.1",
+    "eslint-plugin-react": "^7.0.1",
+    "gh-pages": "^1.0.0",
+    "iamtest": "^1.5.3",
+    "npm-run-all": "^4.0.2",
+    "pre-commit": "^1.2.2",
+    "sinon": "^2.3.2",
+    "tape": "^4.6.3"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "pre-commit": [
+    "lint",
+    "test"
+  ]
+}

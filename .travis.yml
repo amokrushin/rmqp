@@ -1,23 +1,28 @@
 sudo: required
 services:
-  - docker
+- docker
 language: node_js
 os: linux
 cache: yarn
 node_js:
-  - stable
-
+- stable
 before_install:
-  - sudo apt-get update
-  - sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
-  - docker pull rabbitmq:alpine
-  - docker pull node:8-alpine
-  - docker run --rm --name rmqp-rabbit --expose 5672 -d rabbitmq:alpine
-
+- sudo apt-get update
+- sudo apt-get -y -o Dpkg::Options::="--force-confnew" install docker-engine
+- docker pull rabbitmq:alpine
+- docker pull node:8-alpine
+- docker run --rm --name rmqp-rabbit --expose 5672 -d rabbitmq:alpine
 script:
-  - npm run docker-test
-
+- npm run docker-test
 after_success:
-  - yarn add codecov
-  - "npm run docker-test -- -- -c lcovonly && ./node_modules/.bin/codecov"
-  - yarn remove codecov
+- yarn add codecov
+- npm run docker-test -- -- -c lcovonly && ./node_modules/.bin/codecov
+- yarn remove codecov
+deploy:
+  provider: npm
+  email: anton@mokr.org
+  api_key:
+    secure: KBdGT8snqwDPL6bASNMZTXLEQsQ3uMN81FbF3FjDlB+Y5RYRq6tBQkZYroHUvRJhb6/zpMHH4Vk7BTZog8s0xTep64w/RnbwNY+KxW11azINQ8fRqYaTDjAfB+gNtFV8bk5yMKxmJe4lUMQmft8QzZf/WTyzvz2IMUxNC2wenXDKSNrWNeRMcbgQ0yx6WyfUBPBYfKugBAbx1CRyynO4MUeuKEXJXmX2izKJ7SWu02upGsArxjLxlGfGJg0R9uJvxDOsDg8oL7MUXD+cdSI9tJta911s9Le59SMcEEBR7Aqnv3vM4njmOnd3i8MfMu7BusoNijP1yhjHpGXtMAcMkXchIAsUQ4RYOvwPjfKp/tDktlPrU6CoPDkY5oBzHHHyxUHvrP3sYjU2C0+O7G56ZJaPoqmcoZPWlxklNGZIHHXDdbEAk1L+4EnQoqaULs1sdmCv8F2/sri3UDngnIA8bVC+ypr2F9bVWrCO/8vuAOoIpPfKx1MBhJsRc8A00djdlFRtVA807gSba7VItKC4kn/wrZ2RR49tzKxjYFEIgd6YohRd0nWzgI2h1tgbj77WHf47IGa/tQlPFc5g1X6YntRJzFCT1BeGQBXOzJaoK8SgYkjYW5/7tuo0RSdnYP1tKz6+8n2gxGBQQdq+1jVtFB+Yd0gjjOg4SwbpwRH9qHg=
+  on:
+    tags: true
+    repo: amokrushin/rmqp

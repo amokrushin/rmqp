@@ -1,8 +1,17 @@
+sudo: required
+services:
+  - docker
 language: node_js
 os: linux
 cache: yarn
 node_js:
   - stable
+
+before_install:
+  - docker pull rabbitmq:alpine
+  - docker pull node:8-alpine
+  - docker run --rm --name rmqp-rabbit --expose 5672 -d rabbitmq:alpine
+
 after_success:
   - yarn add codecov
   - "npm run docker-test -- -- -c lcovonly && ./node_modules/.bin/codecov"

@@ -88,7 +88,7 @@ test('2 Work queues', (t) => {
         t.pass('[x] Publisher sent \'Fifth message.....\'');
         publisher.end();
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 
 
@@ -110,7 +110,7 @@ test('2 Work queues', (t) => {
                 }, timeout * 10);
             });
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 
 
@@ -132,7 +132,7 @@ test('2 Work queues', (t) => {
                 }, timeout * 10);
             });
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 });
 
@@ -162,7 +162,7 @@ test('3 Publish/Subscribe', (t) => {
             publisher.end(msg);
         });
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 
 
@@ -179,7 +179,7 @@ test('3 Publish/Subscribe', (t) => {
 
         receiver.once('ready', () => ee.emit('receiver 2 ready'));
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 
 
@@ -196,7 +196,7 @@ test('3 Publish/Subscribe', (t) => {
 
         receiver.once('ready', () => ee.emit('receiver 1 ready'));
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 });
 
@@ -232,7 +232,7 @@ test('4 Routing', (t) => {
             t.pass(`[x] Publisher sent error: '${msgError}'`);
         });
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 
 
@@ -249,7 +249,7 @@ test('4 Routing', (t) => {
 
         receiver.once('ready', () => ee.emit('receiver 2 ready'));
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 
 
@@ -266,7 +266,7 @@ test('4 Routing', (t) => {
 
         receiver.once('ready', () => ee.emit('receiver 1 ready'));
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 });
 
@@ -304,7 +304,7 @@ test('5 Topics', (t) => {
             t.pass(`[x] Publisher sent io.critical: '${msgIoCritical}'`);
         });
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 
 
@@ -322,7 +322,7 @@ test('5 Topics', (t) => {
 
         receiver.once('ready', () => ee.emit('receiver 1 ready'));
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 
 
@@ -340,7 +340,7 @@ test('5 Topics', (t) => {
 
         receiver.once('ready', () => ee.emit('receiver 2 ready'));
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 
 
@@ -358,7 +358,7 @@ test('5 Topics', (t) => {
 
         receiver.once('ready', () => ee.emit('receiver 3 ready'));
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 
 
@@ -376,7 +376,7 @@ test('5 Topics', (t) => {
 
         receiver.once('ready', () => ee.emit('receiver 4 ready'));
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 });
 
@@ -412,7 +412,7 @@ test('6 RPC', (t) => {
 
         sub.once('ready', () => ee.emit('rpc server ready'));
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 
 
@@ -435,7 +435,7 @@ test('6 RPC', (t) => {
             pub.end(n.toString());
         });
 
-        wait(cb => setTimeout(() => amqp.close(cb), 500));
+        wait(cb => setTimeout(() => amqp.close(cb), 2000));
     }
 });
 

@@ -14,6 +14,9 @@ before_install:
   - docker pull node:8-alpine
   - docker run --rm --name rmqp-rabbit --expose 5672 -d rabbitmq:alpine
 
+script:
+  - npm run docker-test
+
 after_success:
   - yarn add codecov
   - "npm run docker-test -- -- -c lcovonly && ./node_modules/.bin/codecov"

@@ -2,11 +2,12 @@
 <html>
 <head>
   <meta charset='utf-8' />
-  <title>rmqp 0.1.1 | Documentation</title>
+  <title>rmqp 0.1.0 | Documentation</title>
   <meta name='viewport' content='width=device-width,initial-scale=1'>
   <link href='assets/bass.css' type='text/css' rel='stylesheet' />
   <link href='assets/style.css' type='text/css' rel='stylesheet' />
   <link href='assets/github.css' type='text/css' rel='stylesheet' />
+  <link href='assets/extra.css' type='text/css' rel='stylesheet' />
 </head>
 <body class='documentation'>
   <div class='max-width-4 mx-auto'>
@@ -14,7 +15,7 @@
       <div class='fixed xs-hide fix-3 overflow-auto max-height-100'>
         <div class='py1 px2'>
           <h3 class='mb0 no-anchor'>rmqp</h3>
-          <div class='mb1'><code>0.1.1</code></div>
+          <div class='mb1'><code>0.1.0</code></div>
           <input
             placeholder='Filter'
             id='filter-input'
@@ -31,13 +32,13 @@
                   <span class='icon'>▸</span>
                 </a>
                 
-                <div class='toggle-target display-none'>
+                <div>
                   
                   <ul class='list-reset py1-ul pl1'>
                     <li class='h5'><span>Static members</span></li>
                     
                       <li><a
-                        href='#AmqpClient.transformer'
+                        href='#amqpclienttransformer'
                         class='regular pre-open'>
                         .transformer
                       </a></li>
@@ -49,109 +50,109 @@
                       <li class='h5'><span>Instance members</span></li>
                       
                       <li><a
-                        href='#AmqpClient#publisher'
+                        href='#amqpclientpublisher'
                         class='regular pre-open'>
                         #publisher
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#subscriber'
+                        href='#amqpclientsubscriber'
                         class='regular pre-open'>
                         #subscriber
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#close'
+                        href='#amqpclientclose'
                         class='regular pre-open'>
                         #close
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#assertQueue'
+                        href='#amqpclientassertqueue'
                         class='regular pre-open'>
                         #assertQueue
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#checkQueue'
+                        href='#amqpclientcheckqueue'
                         class='regular pre-open'>
                         #checkQueue
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#deleteQueue'
+                        href='#amqpclientdeletequeue'
                         class='regular pre-open'>
                         #deleteQueue
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#purgeQueue'
+                        href='#amqpclientpurgequeue'
                         class='regular pre-open'>
                         #purgeQueue
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#bindQueue'
+                        href='#amqpclientbindqueue'
                         class='regular pre-open'>
                         #bindQueue
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#unbindQueue'
+                        href='#amqpclientunbindqueue'
                         class='regular pre-open'>
                         #unbindQueue
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#assertExchange'
+                        href='#amqpclientassertexchange'
                         class='regular pre-open'>
                         #assertExchange
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#checkExchange'
+                        href='#amqpclientcheckexchange'
                         class='regular pre-open'>
                         #checkExchange
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#deleteExchange'
+                        href='#amqpclientdeleteexchange'
                         class='regular pre-open'>
                         #deleteExchange
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#bindExchange'
+                        href='#amqpclientbindexchange'
                         class='regular pre-open'>
                         #bindExchange
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#unbindExchange'
+                        href='#amqpclientunbindexchange'
                         class='regular pre-open'>
                         #unbindExchange
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#get'
+                        href='#amqpclientget'
                         class='regular pre-open'>
                         #get
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#ackAll'
+                        href='#amqpclientackall'
                         class='regular pre-open'>
                         #ackAll
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#nackAll'
+                        href='#amqpclientnackall'
                         class='regular pre-open'>
                         #nackAll
                       </a></li>
                       
                       <li><a
-                        href='#AmqpClient#recover'
+                        href='#amqpclientrecover'
                         class='regular pre-open'>
                         #recover
                       </a></li>
@@ -222,6 +223,10 @@
   
 
   
+
+  <p>
+    
+  </p>
 
   <div class='pre p1 fill-light mt0'>new AmqpClient(url: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?)</div>
   
@@ -336,14 +341,14 @@
     <div class='py1 quiet mt1 prose-big'>Static Members</div>
     <div class="clearfix">
   
-    <div class='border-bottom' id='AmqpClient.transformer'>
+    <div class='border-bottom' id='amqpclienttransformer'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>transformer(transformer)</span>
+            <span class='code strong truncate'>transformer(transformer)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -358,6 +363,10 @@
   
 
   
+
+  <p>
+    
+  </p>
 
   <div class='pre p1 fill-light mt0'>transformer(transformer: function (message: <a href="#amqpmessage">AmqpMessage</a>, cb)): <a href="https://nodejs.org/api/stream.html#stream_class_stream_transform">stream.Transform</a></div>
   
@@ -431,14 +440,14 @@ sub.pipe(transformer).pipe(pub);</pre>
     <div class='py1 quiet mt1 prose-big'>Instance Members</div>
     <div class="clearfix">
   
-    <div class='border-bottom' id='AmqpClient#publisher'>
+    <div class='border-bottom' id='amqpclientpublisher'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>publisher(exchange?, routingKey?, options?)</span>
+            <span class='code strong truncate'>publisher(exchange?, routingKey?, options?)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -455,6 +464,15 @@ sub.pipe(transformer).pipe(pub);</pre>
   <p>publisher(queue, options)
 publisher(exchange, routingKey, options)</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_publish'>
+        <span>     amqp.node — Channel#publish</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>publisher(exchange: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, routingKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?): <a href="https://nodejs.org/api/stream.html#stream_class_stream_writable">stream.Writable</a></div>
   
@@ -708,14 +726,14 @@ in an RPC scenario (many libraries assume this pattern).
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#subscriber'>
+    <div class='border-bottom' id='amqpclientsubscriber'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>subscriber(exchange?, routingKey, options?)</span>
+            <span class='code strong truncate'>subscriber(exchange?, routingKey, options?)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -740,6 +758,25 @@ See <a href="http://www.rabbitmq.com/consumer-prefetch.html">rabbitmq-prefetch</
 <p>Use the <code>global</code> flag to get the per-channel behaviour. To keep life interesting, using the <code>global</code> flag
 with an RabbitMQ older than v3.3.0 will bring down the whole connection.</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_consume'>
+        <span>     amqp.node — Channel#consume</span>
+      </a>
+    </div><div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_prefetch'>
+        <span>     amqp.node — Channel#prefetch</span>
+      </a>
+    </div><div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.rabbitmq.com/consumer-prefetch.html'>
+        <span>rabbitmq.com — Consumer Prefetch</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>subscriber(exchange: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>?, routingKey: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?): <a href="https://nodejs.org/api/stream.html#stream_class_stream_readable">stream.Readable</a></div>
   
@@ -899,14 +936,14 @@ using the
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#close'>
+    <div class='border-bottom' id='amqpclientclose'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>close(cb)</span>
+            <span class='code strong truncate'>close(cb)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -922,6 +959,10 @@ using the
 
   <p>Close AMQP connection</p>
 
+
+  <p>
+    
+  </p>
 
   <div class='pre p1 fill-light mt0'>close(cb: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>)</div>
   
@@ -968,14 +1009,14 @@ using the
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#assertQueue'>
+    <div class='border-bottom' id='amqpclientassertqueue'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>assertQueue(queue, options?, cb = noopThrowIfError)</span>
+            <span class='code strong truncate'>assertQueue(queue, options?, cb = noopThrowIfError)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -993,6 +1034,15 @@ using the
 however, it will bork the channel if the queue already exists but has different properties
 (values supplied in the arguments field may or may not count for borking purposes).</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_assertQueue'>
+        <span>http://www.squaremobius.net/amqp.node/channel_api.html#channel_assertQueue</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>assertQueue(queue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?, cb: function (err, {queue, messageCount, consumerCount})?)</div>
   
@@ -1145,14 +1195,14 @@ Old messages will be discarded (dead-lettered if that's set) to make way for new
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#checkQueue'>
+    <div class='border-bottom' id='amqpclientcheckqueue'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>checkQueue(queue, cb)</span>
+            <span class='code strong truncate'>checkQueue(queue, cb)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -1169,6 +1219,15 @@ Old messages will be discarded (dead-lettered if that's set) to make way for new
   <p>Check whether a queue exists. This will bork the channel if the named queue doesn't exist;
 if it does exist, you go through to the next round!</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_checkQueue'>
+        <span>http://www.squaremobius.net/amqp.node/channel_api.html#channel_checkQueue</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>checkQueue(queue: any, cb: any): <a href="#amqpclient">AmqpClient</a></div>
   
@@ -1230,14 +1289,14 @@ if it does exist, you go through to the next round!</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#deleteQueue'>
+    <div class='border-bottom' id='amqpclientdeletequeue'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>deleteQueue(queue, options?, cb = noopThrowIfError)</span>
+            <span class='code strong truncate'>deleteQueue(queue, options?, cb = noopThrowIfError)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -1259,6 +1318,15 @@ You should leave out the options altogether if you want to delete the queue unco
 <p>The server reply contains a single field, messageCount, with the number of messages deleted
 or dead-lettered along with the queue.</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel-deletequeue'>
+        <span>http://www.squaremobius.net/amqp.node/channel_api.html#channel-deletequeue</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>deleteQueue(queue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?, cb: function (err, {messageCount})?): this</div>
   
@@ -1363,14 +1431,14 @@ or dead-lettered along with the queue.</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#purgeQueue'>
+    <div class='border-bottom' id='amqpclientpurgequeue'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>purgeQueue(queue, cb = noopThrowIfError)</span>
+            <span class='code strong truncate'>purgeQueue(queue, cb = noopThrowIfError)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -1389,6 +1457,15 @@ that have been delivered but not yet acknowledged; they will remain, and may be 
 under some circumstances (e.g., if the channel to which they were delivered closes without acknowledging them).</p>
 <p>The server reply contains a single field, messageCount, containing the number of messages purged from the queue.</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel-purgequeue'>
+        <span>http://www.squaremobius.net/amqp.node/channel_api.html#channel-purgequeue</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>purgeQueue(queue: any, cb: function (err, {messageCount})?): this</div>
   
@@ -1451,14 +1528,14 @@ under some circumstances (e.g., if the channel to which they were delivered clos
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#bindQueue'>
+    <div class='border-bottom' id='amqpclientbindqueue'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>bindQueue(queue, source, pattern, argt?, cb = noopThrowIfError)</span>
+            <span class='code strong truncate'>bindQueue(queue, source, pattern, argt?, cb = noopThrowIfError)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -1483,6 +1560,20 @@ some features connected to the message.</p>
 </ul>
 <p>A few valid routing key examples: <code>"stock.usd.nyse"</code>, <code>"quick.orange.rabbit"</code>, <code>"*.*.rabbit"</code>.</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel-bindqueue'>
+        <span>     amqp.node — Channel#bindQueue</span>
+      </a>
+    </div><div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='https://www.rabbitmq.com/tutorials/tutorial-five-javascript.html'>
+        <span>     rabbitmq.com/tutorials — Topic exchange</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>bindQueue(queue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, source: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, pattern: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, argt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?, cb: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>?)</div>
   
@@ -1565,14 +1656,14 @@ some features connected to the message.</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#unbindQueue'>
+    <div class='border-bottom' id='amqpclientunbindqueue'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>unbindQueue(queue, source, pattern, argt?, cb = noopThrowIfError)</span>
+            <span class='code strong truncate'>unbindQueue(queue, source, pattern, argt?, cb = noopThrowIfError)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -1589,6 +1680,15 @@ some features connected to the message.</p>
   <p>Remove a routing path between the queue named and the exchange named as source
 with the pattern and arguments given.</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_unbindQueue'>
+        <span>     amqp.node — Channel#unbindQueue</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>unbindQueue(queue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, source: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, pattern: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, argt: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?, cb: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>?)</div>
   
@@ -1671,14 +1771,14 @@ with the pattern and arguments given.</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#assertExchange'>
+    <div class='border-bottom' id='amqpclientassertexchange'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>assertExchange(exchange, type, options?, cb)</span>
+            <span class='code strong truncate'>assertExchange(exchange, type, options?, cb)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -1697,6 +1797,20 @@ different to those supplied, the channel will 'splode; fields in the arguments o
 depending on the type of exchange. Unlike queues, you must supply a name, and it can't be the empty string.
 You must also supply an exchange type, which determines how messages will be routed through the exchange.</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_assertExchange'>
+        <span>     amqp.node — Channel#assertExchange</span>
+      </a>
+    </div><div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='https://www.rabbitmq.com/tutorials/amqp-concepts.html#exchanges'>
+        <span>     rabbitmq.com/tutorials — Exchanges and Exchange Types</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>assertExchange(exchange: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, type: (<code>"direct"</code> | <code>"fanout"</code> | <code>"topic"</code> | <code>"headers"</code>), options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?, cb: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function">function</a>)</div>
   
@@ -1828,14 +1942,14 @@ You must also supply an exchange type, which determines how messages will be rou
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#checkExchange'>
+    <div class='border-bottom' id='amqpclientcheckexchange'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>checkExchange(exchange, cb)</span>
+            <span class='code strong truncate'>checkExchange(exchange, cb)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -1852,6 +1966,15 @@ You must also supply an exchange type, which determines how messages will be rou
   <p>Check that an exchange exists. If it doesn't exist, the channel will be closed with an error.
 If it does exist, happy days.</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_checkExchange'>
+        <span>     amqp.node — Channel#checkExchange</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>checkExchange(exchange: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, cb: function (err))</div>
   
@@ -1906,14 +2029,14 @@ If it does exist, happy days.</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#deleteExchange'>
+    <div class='border-bottom' id='amqpclientdeleteexchange'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>deleteExchange(name, options, cb)</span>
+            <span class='code strong truncate'>deleteExchange(name, options, cb)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -1930,6 +2053,15 @@ If it does exist, happy days.</p>
   <p>Delete exchange, if the exchange does not exist, a channel error is raised
 (RabbitMQ version 3.2.0 and after will not raise an error1).</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_deleteExchange'>
+        <span>     amqp.node — Channel#deleteExchange</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>deleteExchange(name: any, options: any, cb: any)</div>
   
@@ -2013,14 +2145,14 @@ If it does exist, happy days.</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#bindExchange'>
+    <div class='border-bottom' id='amqpclientbindexchange'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>bindExchange(destination, source, pattern, args, cb)</span>
+            <span class='code strong truncate'>bindExchange(destination, source, pattern, args, cb)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -2039,6 +2171,15 @@ from the exchange named by source, according to the type of the source and the p
 For example, a direct exchange will relay messages that have a routing key equal to the pattern.</p>
 <p>NB Exchange to exchange binding is a RabbitMQ extension.</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_bindExchange'>
+        <span>     amqp.node — Channel#bindExchange</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>bindExchange(destination: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, source: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, pattern: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, args: any, cb: any)</div>
   
@@ -2119,14 +2260,14 @@ For example, a direct exchange will relay messages that have a routing key equal
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#unbindExchange'>
+    <div class='border-bottom' id='amqpclientunbindexchange'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>unbindExchange(destination, source, pattern, args, cb)</span>
+            <span class='code strong truncate'>unbindExchange(destination, source, pattern, args, cb)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -2146,6 +2287,15 @@ If no such binding exists, it's – you guessed it – a channel error, except i
 for which it succeeds trivially
 <a href="http://www.squaremobius.net/amqp.node/doc/channel_api.html#idempotent-deletes">1</a>.</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_unbindExchange'>
+        <span>     amqp.node — Channel#unbindExchange</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>unbindExchange(destination: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, source: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, pattern: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, args: any, cb: any)</div>
   
@@ -2226,14 +2376,14 @@ for which it succeeds trivially
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#get'>
+    <div class='border-bottom' id='amqpclientget'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>get(queue, options?, cb)</span>
+            <span class='code strong truncate'>get(queue, options?, cb)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -2251,6 +2401,15 @@ for which it succeeds trivially
 if there is no message to be had (the queue has no messages ready),
 or a message.</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_get'>
+        <span>     amqp.node — Channel#get</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>get(queue: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a>, options: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a>?, cb: any)</div>
   
@@ -2313,14 +2472,14 @@ or a message.</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#ackAll'>
+    <div class='border-bottom' id='amqpclientackall'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>ackAll(cb)</span>
+            <span class='code strong truncate'>ackAll(cb)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -2337,6 +2496,15 @@ or a message.</p>
   <p>Acknowledge all outstanding messages on the channel.
 This is a "safe" operation, in that it won't result in an error even if there are no such messages.</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_ackAll'>
+        <span>     amqp.node — Channel#ackAll</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>ackAll(cb: any)</div>
   
@@ -2382,14 +2550,14 @@ This is a "safe" operation, in that it won't result in an error even if there ar
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#nackAll'>
+    <div class='border-bottom' id='amqpclientnackall'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>nackAll(cb)</span>
+            <span class='code strong truncate'>nackAll(cb)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -2406,6 +2574,15 @@ This is a "safe" operation, in that it won't result in an error even if there ar
   <p>Reject all messages outstanding on this channel. If requeue is truthy, or omitted,
 the server will try to re-enqueue the messages.</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_nackAll'>
+        <span>     amqp.node — Channel#nackAll</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>nackAll(cb: any)</div>
   
@@ -2451,14 +2628,14 @@ the server will try to re-enqueue the messages.</p>
       </div>
     </div>
   
-    <div class='border-bottom' id='AmqpClient#recover'>
+    <div class='border-bottom' id='amqpclientrecover'>
       <div class="clearfix small pointer toggle-sibling">
         <div class="py1 contain">
             <a class='icon pin-right py1 dark-link caret-right'>▸</a>
-            <span class='code strong strong truncate'>recover(cb = noopThrowIfError)</span>
+            <span class='code strong truncate'>recover(cb = noopThrowIfError)</span>
         </div>
       </div>
-      <div class="clearfix display-none toggle-target">
+      <div class="clearfix">
         <section class='p2 mb2 clearfix bg-white minishadow'>
 
   
@@ -2475,6 +2652,15 @@ the server will try to re-enqueue the messages.</p>
   <p>Requeue unacknowledged messages on this channel. The server will reply (with an empty object)
 once all messages are requeued.</p>
 
+
+  <p>
+    <div class='h5'>
+      <span>See: </span>
+      <a class='fr fill-darken0 round pad1x quiet' href='http://www.squaremobius.net/amqp.node/channel_api.html#channel_recover'>
+        <span>     amqp.node — Channel#recover</span>
+      </a>
+    </div>
+  </p>
 
   <div class='pre p1 fill-light mt0'>recover(cb: function (err)?)</div>
   
@@ -2550,6 +2736,10 @@ once all messages are requeued.</p>
 
   <p>AMQP message fields</p>
 
+
+  <p>
+    
+  </p>
 
   <div class='pre p1 fill-light mt0'>AmqpMessageFields</div>
   
@@ -2647,6 +2837,10 @@ once all messages are requeued.</p>
 
   <p>AMQP message properties</p>
 
+
+  <p>
+    
+  </p>
 
   <div class='pre p1 fill-light mt0'>AmqpMessageProperties</div>
   
@@ -2795,6 +2989,10 @@ once all messages are requeued.</p>
 
   <p>AMQP message</p>
 
+
+  <p>
+    
+  </p>
 
   <div class='pre p1 fill-light mt0'>AmqpMessage</div>
   

@@ -1,0 +1,23 @@
+.strong {
+    font-weight : bold;
+}
+
+.prose, .prose a, .prose code {
+    font-size : 14px;
+}
+
+section {
+    font-size : 15px;
+}
+
+section code {
+    font-size        : 15px;
+    background-color : #f1f1f1;
+    padding          : 1px 4px;
+    border-radius    : 4px;
+    color            : #444;
+}
+
+ul {
+    list-style-type : square;
+}

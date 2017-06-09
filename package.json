@@ -27,7 +27,7 @@
     "git-reset": "git reset --hard HEAD && git clean -df && git pull",
     "lint": "eslint index.js lib/**/*.js",
     "test": "iamtest",
-    "preversion": "run-s test lint",
+    "preversion": "run-s lint docker-test-dots",
     "postversion": "npm run docs-publish"
   },
   "dependencies": {

@@ -39,7 +39,7 @@
   },
   "devDependencies": {
     "documentation": "^4.0.0-rc.1",
-    "documentation-theme-iam": "^0.1.0",
+    "documentation-theme-iam": "^0.1.1",
     "eslint": "^3.19.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.2.0",

@@ -1488,9 +1488,9 @@ doctrine@^2.0.0:
     esutils "^2.0.2"
     isarray "^1.0.0"
 
-documentation-theme-iam@^0.1.0:
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/documentation-theme-iam/-/documentation-theme-iam-0.1.0.tgz#6891de2ecdb9db66dc8672114dcffab2defa716d"
+documentation-theme-iam@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/documentation-theme-iam/-/documentation-theme-iam-0.1.1.tgz#35456d84c9d4798227cd31eb6b02a2f7a0c1e63d"
   dependencies:
     concat-stream "^1.6.0"
     doctrine-temporary-fork "^2.0.0-alpha-allowarrayindex"

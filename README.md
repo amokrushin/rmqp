@@ -31,4 +31,4 @@
 [node-version-image]: https://img.shields.io/node/v/rmqp.svg
 [node-version-url]: https://nodejs.org/en/download/
 [license-image]: https://img.shields.io/npm/l/rmqp.svg
-[license-url]: https://raw.githubusercontent.com/amokrushin/rmqp/master/LICENSE.txt
+[license-url]: https://raw.githubusercontent.com/amokrushin/rmqp/master/LICENSE

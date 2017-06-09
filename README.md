@@ -9,8 +9,8 @@
 Some sugar for [amqp.node][github-amqp-node] library
 
 * adds channel pool
-* repcaces [`channel.publish`][amqp-node-publish] and [`channel.sendToQueue`][amqp-node-sendtoqueue] with a [Readable][node-api-stream-readable] stream
-* replaces [`channel.consume`][amqp-node-consume] with a [Writable][node-api-stream-writable] stream
+* repcaces [`channel.publish`][amqp-node-publish] and [`channel.sendToQueue`][amqp-node-sendtoqueue] with a [Writable][node-api-stream-writable] stream
+* replaces [`channel.consume`][amqp-node-consume] with a [Readable][node-api-stream-readable] stream
 
 
 ## Install
